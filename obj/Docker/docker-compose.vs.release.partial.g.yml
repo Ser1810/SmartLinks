@@ -1,6 +1,6 @@
 services:
   test:
-    container_name: "Tests"
+    container_name: "Tests_1"
     build:
       args:
         LAUNCHING_FROM_VS: true

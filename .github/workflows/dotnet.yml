@@ -19,11 +19,7 @@ jobs:
       - name: Установить Docker Compose
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker-compose
-
-      - name: Собрать контейнеры
-        run: |
-          docker-compose build
+          sudo apt-get install -y docker-compose      
 
       - name: Запустить тесты внутри контейнера
         run: |
