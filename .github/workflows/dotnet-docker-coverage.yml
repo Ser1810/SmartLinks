@@ -1,0 +1,75 @@
+name: .NET Build and Tests with Coverage in Docker
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-dotnet-test-image .
+
+      - name: Run build inside Docker container
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -w /app \
+            my-dotnet-test-image \
+            bash -c "
+              apt-get update && apt-get install -y libxml2-utils && \
+              dotnet restore && \
+              dotnet build --configuration Release
+            "
+
+      - name: Run tests with coverage inside Docker container
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -w /app \
+            my-dotnet-test-image \
+            bash -c "
+              dotnet test --no-build --configuration Release --collect:\"XPlat Code Coverage\" --results-directory ./TestResults
+            "
+
+      - name: Generate coverage report and extract coverage percentage
+        run: |
+          # Установка reportgenerator
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          export PATH="$PATH:$HOME/.dotnet/tools"
+
+          # Генерация HTML отчета из файла cobertura.xml
+          reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:HtmlSummary
+
+          # Парсинг процента покрытия из Summary.html (или другого файла)
+          # Можно использовать любой парсер, например xmllint или grep + sed.
+          
+          # Пример с grep и sed для извлечения процента из Summary.html
+          COVERAGE_LINE=$(grep 'Line' coverage-report/Summary.html)
+          
+          echo "$COVERAGE_LINE"
+          
+          # Можно дополнительно парсить и выводить только число, если нужно.
+          
+          # Для простоты, выводим весь строку или число.
+          
+        # В этом примере можно добавить команду для извлечения числа покрытия, если нужно.
+
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage-report/
