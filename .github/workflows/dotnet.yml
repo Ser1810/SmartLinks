@@ -3,7 +3,7 @@ name: .NET
 on:
   push:
     branches:
-      - main  # запускать при пуше в ветку main
+      - develop  # запускать при пуше в ветку develop
 
 jobs:
   build-and-deploy:
