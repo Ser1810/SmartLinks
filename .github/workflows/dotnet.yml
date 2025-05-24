@@ -9,55 +9,67 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-test-coverage:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout репозитория
         uses: actions/checkout@v3
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-      - name: Установить Docker Compose
+      - name: Build Docker image
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
+          docker build -t my-dotnet-test-image .
 
-      - name: Собрать и запустить контейнеры
+      - name: Run build inside Docker container
         run: |
-          docker-compose up --build -d
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -w /app \
+            my-dotnet-test-image \
+            bash -c "
+              apt-get update && apt-get install -y libxml2-utils && \
+              dotnet restore && \
+              dotnet build --configuration Release
+            "
 
-      - name: Запустить тесты внутри контейнера
+      - name: Run tests with coverage inside Docker container
         run: |
-          docker-compose run --rm test
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -w /app \
+            my-dotnet-test-image \
+            bash -c "
+              dotnet test --no-build --configuration Release --collect:\"XPlat Code Coverage\" --results-directory ./TestResults
+            "
 
-      - name: Остановить контейнеры
+      - name: Generate coverage report and extract coverage percentage
         run: |
-          docker-compose down
+          # Установка reportgenerator
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          export PATH="$PATH:$HOME/.dotnet/tools"
 
-      - name: Найти отчет о покрытии
-        id: find_report
-        run: |
-          # Путь к отчету, который монтируется из контейнера
-          REPORT_PATH="./TestResults/coverage.cobertura.xml"
+          # Генерация HTML отчета из файла cobertura.xml
+          reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:HtmlSummary
+
+          # Парсинг процента покрытия из Summary.html (или другого файла)
+          # Можно использовать любой парсер, например xmllint или grep + sed.
           
-          if [ ! -f "$REPORT_PATH" ]; then
-            echo "Отчет не найден по пути $REPORT_PATH"
-            exit 1
-          fi
+          # Пример с grep и sed для извлечения процента из Summary.html
+          COVERAGE_LINE=$(grep 'Line' coverage-report/Summary.html)
           
-          echo "report_path=$REPORT_PATH" >> $GITHUB_OUTPUT
+          echo "$COVERAGE_LINE"
+          
+          # Можно дополнительно парсить и выводить только число, если нужно.
+          
+          # Для простоты, выводим весь строку или число.
+          
+        # В этом примере можно добавить команду для извлечения числа покрытия, если нужно.
 
-      - name: Установить xmlstarlet для парсинга XML
-        if: steps.find_report.outputs.report_path != ''
-        run: |
-          sudo apt-get install -y xmlstarlet
-
-      - name: Парсить и выводить процент покрытия
-        if: steps.find_report.outputs.report_path != ''
-        run: |
-          REPORT_FILE="${{ steps.find_report.outputs.report_path }}"
-          
-          LINE_RATE=$(xmlstarlet sel -t -v "/coverage/@line-rate" "$REPORT_FILE")
-          
-          PERCENTAGE=$(awk "BEGIN {printf \"%.2f\", $LINE_RATE * 100}")
-          
-          echo "Процент покрытия кода тестами: $PERCENTAGE%"
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage-report/

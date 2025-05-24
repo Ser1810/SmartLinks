@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Test\\PW1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|solutionrelative:tests\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|solutionrelative:tests\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5411C05-635F-4503-800D-D618A04878E5}|Processors.Time\\Processors.Time.csproj|d:\\test\\pw1\\processors.time\\timeprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|solutionrelative:tests\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,21 +54,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Dockerfile",
-              "RelativeDocumentMoniker": "WebAPI\\Dockerfile",
-              "ToolTip": "D:\\Test\\PW1\\WebAPI\\Dockerfile",
-              "RelativeToolTip": "WebAPI\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-24T19:21:05.689Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
@@ -95,38 +78,36 @@
               "RelativeToolTip": "Tests\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-24T18:58:41.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T18:58:41.562Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "RedirectMiddleware.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
               "RelativeDocumentMoniker": "WebAPI\\RedirectMiddleware.cs",
               "ToolTip": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
               "RelativeToolTip": "WebAPI\\RedirectMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:27:54.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:27:54.232Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\Test\\PW1\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "D:\\Test\\PW1\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-05-23T19:19:28.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "LanguageProcessor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\Processors.Language\\LanguageProcessor.cs",
               "RelativeDocumentMoniker": "Processors.Language\\LanguageProcessor.cs",
@@ -134,25 +115,23 @@
               "RelativeToolTip": "Processors.Language\\LanguageProcessor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:25:01.246Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:25:01.246Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Dockerfile",
               "RelativeDocumentMoniker": "Tests\\Dockerfile",
               "ToolTip": "D:\\Test\\PW1\\Tests\\Dockerfile",
               "RelativeToolTip": "Tests\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-24T17:56:34.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T17:56:34.967Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "SqlExecutor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\DB\\SqlExecutor.cs",
               "RelativeDocumentMoniker": "DB\\SqlExecutor.cs",
@@ -160,12 +139,11 @@
               "RelativeToolTip": "DB\\SqlExecutor.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAApwBoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:21:32.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:21:32.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "SmartLinkService.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\SmartLinks\\SmartLinkService.cs",
               "RelativeDocumentMoniker": "SmartLinks\\SmartLinkService.cs",
@@ -173,18 +151,17 @@
               "RelativeToolTip": "SmartLinks\\SmartLinkService.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAApwE4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:18:50.678Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:18:50.678Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Test.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Test.cs",
               "RelativeDocumentMoniker": "Tests\\Test.cs",
               "ToolTip": "D:\\Test\\PW1\\Tests\\Test.cs",
               "RelativeToolTip": "Tests\\Test.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwC4AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwC4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T19:28:35.951Z",
               "EditorCaption": ""
@@ -204,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI\\Program.cs",
@@ -212,12 +189,11 @@
               "RelativeToolTip": "WebAPI\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:27:33.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:27:33.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "WebAPI\\Properties\\launchSettings.json",
@@ -225,8 +201,7 @@
               "RelativeToolTip": "WebAPI\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-20T19:32:54.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T19:32:54.692Z"
             }
           ]
         }

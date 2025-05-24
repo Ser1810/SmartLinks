@@ -25,15 +25,5 @@ services:
 
     command: ["bash", "-c", "/backup/restore_and_start.sh"]
 
-  test:
-    build: 
-     context: . 
-     dockerfile: Tests/Dockerfile
-    command: bash -c "dotnet test Tests/Tests.csproj --collect:\"XPlat Code Coverage\" --results-directory /app/TestResults"
-    depends_on:
-      - webapi 
-    volumes:
-      - ./TestResults:/app/TestResults
-
 volumes:
   pgdata:
