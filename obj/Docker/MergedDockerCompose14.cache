@@ -1,0 +1,39 @@
+name: dockercompose10892701016729606788
+services:
+  postgres:
+    command:
+      - '-'
+      - sh
+      - '-'
+      - -c
+      - '-'
+      - mkdir
+      - -p
+      - /var/lib/postgresql/data
+    container_name: postgres_container
+    deploy:
+      resources:
+        limits:
+          cpus: 0.5
+          memory: "536870912"
+        reservations:
+          cpus: 0.25
+          memory: "268435456"
+    environment:
+      POSTGRES_DB: SmartLinkD
+      POSTGRES_PASSWORD: "111"
+      POSTGRES_USER: puser
+    image: postgres:15.0
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5430"
+        protocol: tcp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+networks:
+  default:
+    name: dockercompose10892701016729606788_default
