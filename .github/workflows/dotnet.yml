@@ -1,0 +1,37 @@
+name: Build, Test and Coverage in Docker
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-in-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-dotnet-test .
+
+      - name: Run tests and generate coverage report
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            -v ${{ github.workspace }}/coverage-report:/output \
+            my-dotnet-test \
+            bash -c " \
+              export PATH=\"\$PATH:/root/.dotnet/tools\" && \
+              reportgenerator -reports:\"/coverage/coverage.opencover.xml\" -targetdir:\"/output\" -reporttypes:HtmlSummary"
+          
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage-report
