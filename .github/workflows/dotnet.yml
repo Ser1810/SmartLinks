@@ -1,4 +1,4 @@
-name: Build, Test and Coverage in Docker
+name: Build, Test and Show Coverage in Log
 
 on:
   push:
@@ -9,29 +9,49 @@ on:
       - main
 
 jobs:
-  test-in-docker:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build Docker image
-        run: |
-          docker build -t my-dotnet-test .
-
-      - name: Run tests and generate coverage report
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/app \
-            -v ${{ github.workspace }}/coverage-report:/output \
-            my-dotnet-test \
-            bash -c " \
-              export PATH=\"\$PATH:/root/.dotnet/tools\" && \
-              reportgenerator -reports:\"/coverage/coverage.opencover.xml\" -targetdir:\"/output\" -reporttypes:HtmlSummary"
-          
-      - name: Upload coverage report as artifact
-        uses: actions/upload-artifact@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
         with:
-          name: coverage-report
-          path: coverage-report
+          dotnet-version: '8.0.x'  # укажите нужную версию SDK
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Run tests with coverage and capture output
+        id: test
+        run: |
+          # Запускаем тесты с сбором покрытия и сохраняем результат в переменную
+          dotnet test --configuration Release \
+            /p:CollectCoverage=true \
+            /p:CoverletOutputFormat=opencover \
+            /p:CoverletOutput=./coverage/ \
+            --logger "trx;LogFileName=test_results.trx"
+
+          # Анализируем отчет о покрытии (файл coverage.opencover.xml)
+          COVERAGE_FILE=./coverage/coverage.opencover.xml
+
+          if [ -f "$COVERAGE_FILE" ]; then
+            # Используем команду reportgenerator или скрипт для получения процента покрытия
+            # Для простоты — парсим XML вручную или используем утилиту coverlet.console (если есть)
+            # Ниже пример парсинга процента покрытия из XML (упрощенно)
+            PERCENT=$(xmllint --xpath "string(//Summary/@line-rate)" "$COVERAGE_FILE")
+            PERCENT_INT=$(awk "BEGIN {printf \"%d\", $PERCENT * 100}")
+            echo "Общий процент покрытия строк: $PERCENT_INT%"
+          else
+            echo "Файл отчета о покрытии не найден."
+          fi
+
+      - name: Выводим процент покрытия в лог
+        run: |
+          echo "Процент покрытия кода тестами:"
+          # Можно вывести переменную из предыдущего шага, если сохранили ее как output или environment variable.
