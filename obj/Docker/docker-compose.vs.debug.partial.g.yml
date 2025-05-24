@@ -1,7 +1,7 @@
 services:
   test:
     image: test:dev
-    container_name: "Tests_1"
+    container_name: "Tests"
     build:
       args:
         LAUNCHING_FROM_VS: true

@@ -28,7 +28,7 @@ services:
   test:
     build: 
      context: ./Tests          # путь к папке с Dockerfile
-    command: bash -c "dotnet test Tests/Tests.csproj --collect:\"XPlat Code Coverage\" --results-directory /app/TestResults"
+    command: bash -c "dotnet test Tests.csproj --collect:\"XPlat Code Coverage\" --results-directory /app/TestResults"
     depends_on:
       - webapi 
     volumes:
