@@ -1155,11 +1155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj",
       "projectName": "SmartLinks",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj",
+      "projectPath": "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\SmartLinks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1180,11 +1180,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Test\\PW\\SmartLinks\\DB\\DB.csproj": {
-              "projectPath": "D:\\Test\\PW\\SmartLinks\\DB\\DB.csproj"
+            "D:\\Test\\PW1\\DB\\DB.csproj": {
+              "projectPath": "D:\\Test\\PW1\\DB\\DB.csproj"
             },
-            "D:\\Test\\PW\\SmartLinks\\Model\\Model.csproj": {
-              "projectPath": "D:\\Test\\PW\\SmartLinks\\Model\\Model.csproj"
+            "D:\\Test\\PW1\\Model\\Model.csproj": {
+              "projectPath": "D:\\Test\\PW1\\Model\\Model.csproj"
             }
           }
         }

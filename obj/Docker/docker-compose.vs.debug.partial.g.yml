@@ -1,4 +1,32 @@
 services:
+  test:
+    image: test:dev
+    container_name: "Tests"
+    build:
+      args:
+        LAUNCHING_FROM_VS: true
+        BUILD_CONFIGURATION: Debug
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Tests"
+    environment:
+      - NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages
+    volumes:
+      - D:\Test\PW1\Tests:/app:rw
+      - D:\Test\PW1\Tests:/src:rw
+      - C:\Users\HYPERPC\vsdbg\vs2017u5:/remote_debugger:rw
+      - E:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net8.0:/VSTools:ro
+      - E:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\HotReload:/HotReloadAgent:ro
+      - C:\Users\HYPERPC\.nuget\packages:/.nuget/packages:ro
+      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/.nuget/fallbackpackages:ro
+    entrypoint: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --wait"
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /.nuget/packages --additionalProbingPath /.nuget/fallbackpackages  \"/app/bin/Debug/net8.0/Tests.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
+    tty: true
   webapi:
     image: webapi:dev
     container_name: "WebAPI"
@@ -15,8 +43,8 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages
     volumes:
-      - D:\Test\PW\SmartLinks\WebAPI:/app:rw
-      - D:\Test\PW\SmartLinks:/src:rw
+      - D:\Test\PW1\WebAPI:/app:rw
+      - D:\Test\PW1:/src:rw
       - C:\Users\HYPERPC\vsdbg\vs2017u5:/remote_debugger:rw
       - C:\Users\HYPERPC\.nuget\packages:/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/.nuget/fallbackpackages:ro

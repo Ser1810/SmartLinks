@@ -1261,11 +1261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\WebAPI\\WebAPI.csproj",
+      "projectPath": "D:\\Test\\PW1\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\WebAPI\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1286,8 +1286,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj": {
-              "projectPath": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj"
+            "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj": {
+              "projectPath": "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj"
             }
           }
         }

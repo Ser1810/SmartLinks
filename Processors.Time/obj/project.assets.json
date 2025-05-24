@@ -1173,11 +1173,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\Processors.Time\\Processors.Time.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\Processors.Time\\Processors.Time.csproj",
       "projectName": "Processors.Time",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\Processors.Time\\Processors.Time.csproj",
+      "projectPath": "D:\\Test\\PW1\\Processors.Time\\Processors.Time.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\Processors.Time\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\Processors.Time\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1198,8 +1198,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj": {
-              "projectPath": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj"
+            "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj": {
+              "projectPath": "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/3zb57nt1AY=",
+  "dgSpecHash": "HiV48unJcVc=",
   "success": true,
-  "projectFilePath": "D:\\Test\\PW\\SmartLinks\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "D:\\Test\\PW1\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",

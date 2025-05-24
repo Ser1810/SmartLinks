@@ -191,11 +191,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\DB\\DB.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\DB\\DB.csproj",
       "projectName": "DB",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\DB\\DB.csproj",
+      "projectPath": "D:\\Test\\PW1\\DB\\DB.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\DB\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\DB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

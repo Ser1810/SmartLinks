@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\Model\\Model.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\Model\\Model.csproj",
+      "projectPath": "D:\\Test\\PW1\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\Model\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

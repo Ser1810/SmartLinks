@@ -21,9 +21,18 @@ services:
       - ./backup:/backup           # папка с бэкапом на хосте
       - pgdata:/var/lib/postgresql/data # постоянное хранилище данных
       - ./restore_and_start.sh:/docker-entrypoint-initdb.d/restore_and_start.sh:ro
-        # или монтировать скрипт так, чтобы он запускался при инициализации базы
+        # скрипт для восстановления базы при инициализации
 
     command: ["bash", "-c", "/backup/restore_and_start.sh"]
-      
+
+  test:
+    build: 
+     context: ./Tests          # путь к папке с Dockerfile
+    command: bash -c "dotnet test Tests/Tests.csproj --collect:\"XPlat Code Coverage\" --results-directory /app/TestResults"
+    depends_on:
+      - webapi 
+    volumes:
+      - ./TestResults:/app/TestResults
+
 volumes:
   pgdata:

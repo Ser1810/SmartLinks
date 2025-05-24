@@ -1214,11 +1214,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\PW\\SmartLinks\\Processors.Browser\\Processors.Browser.csproj",
+      "projectUniqueName": "D:\\Test\\PW1\\Processors.Browser\\Processors.Browser.csproj",
       "projectName": "Processors.Browser",
-      "projectPath": "D:\\Test\\PW\\SmartLinks\\Processors.Browser\\Processors.Browser.csproj",
+      "projectPath": "D:\\Test\\PW1\\Processors.Browser\\Processors.Browser.csproj",
       "packagesPath": "C:\\Users\\HYPERPC\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\PW\\SmartLinks\\Processors.Browser\\obj\\",
+      "outputPath": "D:\\Test\\PW1\\Processors.Browser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1239,8 +1239,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj": {
-              "projectPath": "D:\\Test\\PW\\SmartLinks\\SmartLinks\\SmartLinks.csproj"
+            "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj": {
+              "projectPath": "D:\\Test\\PW1\\SmartLinks\\SmartLinks.csproj"
             }
           }
         }

@@ -3,10 +3,13 @@ name: .NET
 on:
   push:
     branches:
-      - develop  # запускать при пуше в ветку develop
+      - develop
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,20 +21,46 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Собрать Docker образы
+      - name: Собрать контейнеры
         run: |
           docker-compose build
 
-      - name: Запустить тесты
-        run: dotnet test --no-build --verbosity normal
-
-      - name: Пушить Docker образы
-        run: docker-compose push
-
-      - name: Развернуть приложение
+      - name: Запустить тесты внутри контейнера
         run: |
-          # Остановить текущие контейнеры
-          docker-compose down
+          # Запускаем контейнер с тестами через docker-compose
+          docker-compose run --rm test
+
+      - name: Найти отчет о покрытии на хосте
+        id: find_report
+        run: |
+          # Предполагается, что отчет создается внутри контейнера и доступен на хосте.
+          # Можно монтировать volume или копировать файл из контейнера.
           
-          # Запустить новые контейнеры
-          docker-compose up -d
+          # Например, если вы монтировали volume или копировали файл после тестов.
+          
+          # Для этого примера предположим, что отчет сохраняется в ./TestResults внутри репозитория.
+          
+          REPORT_PATH=$(find ./TestResults -name "coverage.cobertura.xml" | head -n 1)
+          
+          if [ -z "$REPORT_PATH" ]; then
+            echo "Report not found!"
+            exit 1
+          fi
+          
+          echo "report_path=$REPORT_PATH" >> $GITHUB_OUTPUT
+
+      - name: Парсить и выводить процент покрытия
+        if: steps.find_report.outputs.report_path != ''
+        run: |
+          REPORT_FILE="${{ steps.find_report.outputs.report_path }}"
+          
+          # Установка xmlstarlet для парсинга XML (если еще не установлен)
+          sudo apt-get install -y xmlstarlet
+          
+          # Получение line-rate из XML (число от 0 до 1)
+          LINE_RATE=$(xmlstarlet sel -t -v "/coverage/@line-rate" "$REPORT_FILE")
+          
+          # Вывод процента покрытия с двумя знаками после запятой
+          PERCENTAGE=$(awk "BEGIN {printf \"%.2f\", $LINE_RATE * 100}")
+          
+          echo "Процент покрытия кода тестами: $PERCENTAGE%"
