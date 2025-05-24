@@ -14,7 +14,7 @@ services:
       - NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages
     volumes:
       - D:\Test\PW1\Tests:/app:rw
-      - D:\Test\PW1\Tests:/src:rw
+      - D:\Test\PW1:/src:rw
       - C:\Users\HYPERPC\vsdbg\vs2017u5:/remote_debugger:rw
       - E:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net8.0:/VSTools:ro
       - E:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\HotReload:/HotReloadAgent:ro
