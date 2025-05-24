@@ -13,20 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'  # укажите нужную версию SDK
-
+          dotnet-version: 8.0.x
       - name: Restore dependencies
         run: dotnet restore
-
-      - name: Build solution
-        run: dotnet build --configuration Release --no-restore
-
+      - name: Build
+        run: dotnet build --no-restore
       - name: Run tests with coverage and capture output
         id: test
         run: |
