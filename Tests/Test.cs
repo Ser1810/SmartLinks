@@ -38,7 +38,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void DBÑonnectionFailed()
+        public void DBConnectionFailed()
         {
             var actual = Assert.ThrowsException<Exception>(() => Connect());
 
