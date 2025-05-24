@@ -1,7 +1,6 @@
 using DB;
 using Microsoft.AspNetCore.Http;
 using Model;
-using Newtonsoft.Json;
 using Npgsql;
 using SmartLinks;
 using System.Data;
