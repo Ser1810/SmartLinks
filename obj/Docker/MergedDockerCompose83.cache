@@ -1,0 +1,74 @@
+name: dockercompose10892701016729606788
+services:
+  postgres:
+    command:
+      - -c
+      - |2
+          # Ждем, пока PostgreSQL полностью запустится
+          #until pg_isready -U ; do sleep 1; done;
+          # Восстановление базы данных из .backup файла с помощью pg_restore
+          pg_restore -U  -d  --clean --if-exists /backups/SmartLink.backup;
+          # Запуск PostgreSQL в обычном режиме
+          docker-entrypoint.sh postgres
+    container_name: postgres_restore
+    entrypoint:
+      - /bin/bash
+    environment:
+      POSTGRES_DB: SmartLinkD
+      POSTGRES_PASSWORD: "111"
+      POSTGRES_USER: puser
+    image: postgres:15
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: D:\Test\PW\SmartLinks\backup
+        target: /backups
+        bind:
+          create_host_path: true
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql/data
+        volume: {}
+  webapi:
+    build:
+      context: D:\Test\PW\SmartLinks
+      dockerfile: WebAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: webapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\HYPERPC\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HYPERPC\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: dockercompose10892701016729606788_default
+volumes:
+  pgdata:
+    name: dockercompose10892701016729606788_pgdata

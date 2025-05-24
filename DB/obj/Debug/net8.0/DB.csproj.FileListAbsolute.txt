@@ -1,0 +1,12 @@
+D:\Test\PW\SmartLinks\DB\bin\Debug\net8.0\DB.deps.json
+D:\Test\PW\SmartLinks\DB\bin\Debug\net8.0\DB.dll
+D:\Test\PW\SmartLinks\DB\bin\Debug\net8.0\DB.pdb
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.csproj.AssemblyReference.cache
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.GeneratedMSBuildEditorConfig.editorconfig
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.AssemblyInfoInputs.cache
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.AssemblyInfo.cs
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.csproj.CoreCompileInputs.cache
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.dll
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\refint\DB.dll
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\DB.pdb
+D:\Test\PW\SmartLinks\DB\obj\Debug\net8.0\ref\DB.dll
