@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\Test\\PW1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|solutionrelative:tests\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -76,19 +72,6 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Dockerfile",
-              "RelativeDocumentMoniker": "Tests\\Dockerfile",
-              "ToolTip": "D:\\Test\\PW1\\Tests\\Dockerfile",
-              "RelativeToolTip": "Tests\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-24T21:30:27.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dockerfile",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Dockerfile",
               "RelativeDocumentMoniker": "WebAPI\\Dockerfile",
               "ToolTip": "D:\\Test\\PW1\\WebAPI\\Dockerfile",
@@ -100,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Tests\\Properties\\launchSettings.json",
@@ -112,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "RedirectMiddleware.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
               "RelativeDocumentMoniker": "WebAPI\\RedirectMiddleware.cs",
@@ -124,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\Test\\PW1\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
@@ -137,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "LanguageProcessor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\Processors.Language\\LanguageProcessor.cs",
               "RelativeDocumentMoniker": "Processors.Language\\LanguageProcessor.cs",
@@ -149,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "SqlExecutor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\DB\\SqlExecutor.cs",
               "RelativeDocumentMoniker": "DB\\SqlExecutor.cs",
@@ -161,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "SmartLinkService.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\SmartLinks\\SmartLinkService.cs",
               "RelativeDocumentMoniker": "SmartLinks\\SmartLinkService.cs",
@@ -173,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Test.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Test.cs",
               "RelativeDocumentMoniker": "Tests\\Test.cs",
@@ -186,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "TimeProcessor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\Processors.Time\\TimeProcessor.cs",
               "RelativeDocumentMoniker": "Processors.Time\\TimeProcessor.cs",
@@ -199,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI\\Program.cs",
@@ -211,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "WebAPI\\Properties\\launchSettings.json",

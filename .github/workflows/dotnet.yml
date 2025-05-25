@@ -1,4 +1,4 @@
-name: Build, Test and Show Coverage in Log
+name: .NET
 
 on:
   push:
@@ -9,44 +9,17 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build SmartLinks.sln --configuration Release
-      - name: Run tests with coverage and capture output
-        id: test
-        run: |
-          # Запускаем тесты с сбором покрытия и сохраняем результат в переменную
-          dotnet test --configuration Release \
-            /p:CollectCoverage=true \
-            /p:CoverletOutputFormat=opencover \
-            /p:CoverletOutput=./coverage/ \
-            --logger "trx;LogFileName=test_results.trx"
-
-          # Анализируем отчет о покрытии (файл coverage.opencover.xml)
-          COVERAGE_FILE=./coverage/coverage.opencover.xml
-
-          if [ -f "$COVERAGE_FILE" ]; then
-            # Используем команду reportgenerator или скрипт для получения процента покрытия
-            # Для простоты — парсим XML вручную или используем утилиту coverlet.console (если есть)
-            # Ниже пример парсинга процента покрытия из XML (упрощенно)
-            PERCENT=$(xmllint --xpath "string(//Summary/@line-rate)" "$COVERAGE_FILE")
-            PERCENT_INT=$(awk "BEGIN {printf \"%d\", $PERCENT * 100}")
-            echo "Общий процент покрытия строк: $PERCENT_INT%"
-          else
-            echo "Файл отчета о покрытии не найден."
-          fi
-
-      - name: Выводим процент покрытия в лог
-        run: |
-          echo "Процент покрытия кода тестами:"
-          # Можно вывести переменную из предыдущего шага, если сохранили ее как output или environment variable.
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
