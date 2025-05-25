@@ -24,16 +24,16 @@ jobs:
       run: |
         docker-compose up -d
     
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+    #- name: Setup .NET
+    #  uses: actions/setup-dotnet@v4
+    #  with:
+    #    dotnet-version: 8.0.x
         
-    - name: Restore dependencies
-      run: dotnet restore ./SmartLinks.sln
+    #- name: Restore dependencies
+    #  run: dotnet restore ./SmartLinks.sln
       
-    - name: Build
-      run: dotnet build ./SmartLinks.sln
+    #- name: Build
+    #  run: dotnet build ./SmartLinks.sln
       
     - name: Test
       run: dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
