@@ -13,13 +13,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
+    - name: Setup Docker Compose
+      run: |
+        # Убедитесь, что у вас есть docker-compose.yml в репозитории
+        docker-compose --version
+
+    - name: Start Docker Containers
+      run: |
+        docker-compose up -d
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+        
     - name: Restore dependencies
       run: dotnet restore ./SmartLinks.sln
+      
     - name: Build
       run: dotnet build ./SmartLinks.sln
+      
     - name: Test
       run: dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
+      
+    - name: Stop Docker Containers
+      if: always()  # чтобы контейнеры останавливались даже при ошибках
+      run: |
+        docker-compose down
