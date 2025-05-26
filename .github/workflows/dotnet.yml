@@ -46,7 +46,7 @@ jobs:
 
       - name: Restore and build solution
         run: |
-          # Предполагается, что у вас есть решение (.sln)
+          # Замените на название вашего решения (.sln)
           dotnet restore SmartLinks.sln
           dotnet build SmartLinks.sln --no-restore --configuration Release
 
