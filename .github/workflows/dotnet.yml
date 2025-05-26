@@ -85,6 +85,12 @@ jobs:
 
       - name: Install xmlstarlet for XML parsing
         run: sudo apt-get install -y xmlstarlet
+        
+      - name: List files in backup directory
+        run: ls -l ./
+        
+      - name: List files in backup directory
+        run: ls -l ./Tests/
 
       - name: Extract coverage percentage
         id: coverage
