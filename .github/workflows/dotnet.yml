@@ -55,6 +55,10 @@ jobs:
           mkdir -p ./TestResults
           dotnet test Tests/ --configuration Release --no-build --logger "trx;LogFileName=test_results.trx" --results-directory ./TestResults
 
+      - name: Verify test result file exists
+        run: |
+        ls -l ./TestResults/test_results.trx
+
       - name: Upload test results (опционально)
         if: always()
         uses: actions/upload-artifact@v3
