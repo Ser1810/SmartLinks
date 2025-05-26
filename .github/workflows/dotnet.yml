@@ -72,7 +72,7 @@ jobs:
         run: dotnet restore SmartLinks.sln
 
       - name: Build
-        env:
+        #env:
           #CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
         run: dotnet build SmartLinks.sln --no-restore
 
