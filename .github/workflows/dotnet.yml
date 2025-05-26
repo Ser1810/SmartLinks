@@ -40,15 +40,21 @@ jobs:
 
       - name: Install psql client
         run: sudo apt-get install -y postgresql-client
+        
+      - name: List files in backup directory
+        run: ls -l ./
+        
+      - name: List files in backup directory
+        run: ls -l ./backup/
 
       - name: Copy backup file to runner
-        run: cp backup/SmartLink.sql ./ 
+        run: cp /backup/SmartLink.sql ./ 
 
       - name: Restore database from backup
         env:
           PGPASSWORD: 111
         run: |
-          psql -h localhost -U puser -d SmartLinkNew -f backup/SmartLink.sql
+          psql -h localhost -U puser -d SmartLinkNew -f /backup/SmartLink.sql
 
       # Установка CONNECTION_STRING для дальнейшего использования
       - name: Set CONNECTION_STRING environment variable
