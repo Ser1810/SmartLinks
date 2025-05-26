@@ -74,7 +74,7 @@ jobs:
       - name: Build
         env:
           CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
-        run: dotnet build --no-restore
+        run: dotnet build SmartLinks.sln --no-restore
 
       - name: Run tests with connection string environment variable
         env:
