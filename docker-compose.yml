@@ -5,8 +5,16 @@ services:
     build:
       context: .
       dockerfile: WebAPI/Dockerfile
+    ports:
+      - "7173:7173"
+    environment:
+      HOST_NAME: host.docker.internal
+      CONNECTION_STRING: "Host=postgres;Port=5432;Database=SmartLinkNew;Username=puser;Password=111"
+      ASPNETCORE_URLS: http://+:7173
     depends_on:
       - postgres
+    networks:
+      - my_network
 
   postgres:
     image: postgres:15
@@ -14,16 +22,20 @@ services:
     environment:
       POSTGRES_USER: puser
       POSTGRES_PASSWORD: 111
-      POSTGRES_DB: SmartLinkD
+      POSTGRES_DB: SmartLinkNew
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - ./backup:/backup           # папка с бэкапом на хосте
       - pgdata:/var/lib/postgresql/data # постоянное хранилище данных
       - ./restore_and_start.sh:/docker-entrypoint-initdb.d/restore_and_start.sh:ro
         # скрипт для восстановления базы при инициализации
-
     command: ["bash", "-c", "/backup/restore_and_start.sh"]
+    networks:
+      - my_network
 
 volumes:
   pgdata:
+
+networks:
+  my_network:

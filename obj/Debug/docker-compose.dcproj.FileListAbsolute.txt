@@ -20,10 +20,10 @@ D:\Test\PW\SmartLinks\bin\Debug\DB.dll
 D:\Test\PW\SmartLinks\bin\Debug\Newtonsoft.Json.dll
 D:\Test\PW\SmartLinks\bin\Debug\Npgsql.dll
 D:\Test\PW\SmartLinks\bin\Debug\DB.pdb
-D:\Test\PW1\bin\Debug\appsettings.Development.json
-D:\Test\PW1\bin\Debug\appsettings.json
 D:\Test\PW1\bin\Debug\WebAPI.deps.json
 D:\Test\PW1\bin\Debug\WebAPI.runtimeconfig.json
+D:\Test\PW1\bin\Debug\appsettings.Development.json
+D:\Test\PW1\bin\Debug\appsettings.json
 D:\Test\PW1\bin\Debug\WebAPI.staticwebassets.runtime.json
 D:\Test\PW1\bin\Debug\WebAPI.exe
 D:\Test\PW1\bin\Debug\WebAPI.dll

@@ -16,6 +16,7 @@ namespace SmartLinks
         {            
             var sql = $"select \"RuleDll\", \"RedirectTo\", \"Args\" from \"{TableName}\" where \"IsActive\" = true order by \"Order\"";
 
+            
             var redirectRules = SqlExecutor.ExecuteSql<RuleRedirect>(sql, GetRuleRedirect);
 
             if (redirectRules == null || !redirectRules.Any())

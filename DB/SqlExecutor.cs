@@ -29,7 +29,8 @@ namespace DB
 
         public static NpgsqlConnection Connect(string connectionString = "")
         {
-            connectionString = !string.IsNullOrEmpty(connectionString) ? connectionString : "Host=postgres;Port=5432;Database=SmartLinkD;Username=puser;Password=111";
+            connectionString = !string.IsNullOrEmpty(connectionString) ? connectionString : Environment.GetEnvironmentVariable("CONNECTION_STRING");
+            //connectionString =  "Host=localhost;Port=5433;Database=SmartLinkNew;Username=puser;Password=111;Timeout=500; CommandTimeout=400;MaxPoolSize=1024;";
 
             NpgsqlConnection conn = null;
 
