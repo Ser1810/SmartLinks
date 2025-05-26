@@ -25,13 +25,13 @@ jobs:
         docker-compose up -d
         
     # Ждем, пока сервисы будут готовы (можно использовать sleep или проверку)
-      - name: Wait for services to be ready
-        run: sleep 30
+    - name: Wait for services to be ready
+      run: sleep 20
 
-      # Запуск тестов
-      - name: Run Tests
-        run: |
-          dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
+    # Запуск тестов
+    - name: Run Tests
+      run: |
+        dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
     
     #- name: Setup .NET
      # uses: actions/setup-dotnet@v4
