@@ -27,9 +27,32 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docker-
 
+      - name: Install Docker Compose (if needed)
+        run: |
+          # Для новых версий Docker (v20+), используйте встроенную команду 'docker compose'
+          # Проверка наличия 'docker compose'
+          if ! docker compose version; then
+            echo "Installing Docker Compose plugin..."
+            sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+            # Создайте символическую ссылку, если нужно:
+            sudo ln -s /usr/local/bin/docker-compose /usr/local/bin/docker-compose || true
+          fi
+
       - name: Start services with Docker Compose
         run: |
-          docker-compose up -d --build
+          # Используйте 'docker compose' или 'docker-compose' в зависимости от установленной версии.
+          if command -v docker; then
+            if docker compose version; then
+              docker compose up -d --build
+            else
+              sudo apt-get update && sudo apt-get install -y docker-compose-plugin
+              docker compose up -d --build
+            fi
+          else
+            echo "Docker не установлен"
+            exit 1
+          fi
 
       - name: Wait for PostgreSQL to be ready
         run: |
