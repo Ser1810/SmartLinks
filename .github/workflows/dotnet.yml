@@ -48,13 +48,13 @@ jobs:
         run: ls -l ./backup/
 
       - name: Copy backup file to runner
-        run: cp ./backup/SmartLink.backup ./ 
+        run: cp /backup/SmartLink.sql ./ 
 
       - name: Restore database from backup
         env:
           PGPASSWORD: 111
         run: |
-          pg_restore -h localhost -U puser --clean --if-exists --verbose --file=SmartLinkNew.backup
+          psql -h localhost -U puser -d SmartLinkNew -f /backup/SmartLink.sql
 
       # Установка CONNECTION_STRING для дальнейшего использования
       - name: Set CONNECTION_STRING environment variable
