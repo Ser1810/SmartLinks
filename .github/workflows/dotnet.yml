@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
     
     # Установка Docker Compose (если нужно)
     - name: Install Docker Compose
@@ -26,12 +27,12 @@ jobs:
         
     # Ждем, пока сервисы будут готовы (можно использовать sleep или проверку)
     - name: Wait for services to be ready
-      run: sleep 20
+      run: sleep 120
 
     # Запуск тестов
     - name: Run Tests
       run: |
-        dotnet test ./Tests/Tests.csproj --verbosity normal
+        dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
     
     #- name: Setup .NET
      # uses: actions/setup-dotnet@v4
