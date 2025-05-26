@@ -16,7 +16,7 @@ jobs:
       postgres:
         image: postgres:15
         ports:
-          - 5433:5433
+          - 5433:5432
         env:
           POSTGRES_USER: puser
           POSTGRES_PASSWORD: 111
@@ -33,7 +33,7 @@ jobs:
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until pg_isready -h localhost -p 5433 -U puser; do
+          until pg_isready -h localhost -p 5432 -U puser; do
             echo "Waiting for PostgreSQL..."
             sleep 2
           done
