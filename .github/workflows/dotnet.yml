@@ -23,20 +23,29 @@ jobs:
     - name: Start Docker Containers
       run: |
         docker-compose up -d
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
         
-    - name: Restore dependencies
-      run: dotnet restore ./SmartLinks.sln
+    # Ждем, пока сервисы будут готовы (можно использовать sleep или проверку)
+      - name: Wait for services to be ready
+        run: sleep 30
+
+      # Запуск тестов
+      - name: Run Tests
+        run: |
+          dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
+    
+    #- name: Setup .NET
+     # uses: actions/setup-dotnet@v4
+    #  with:
+    #    dotnet-version: 8.0.x
+        
+    #- name: Restore dependencies
+    #  run: dotnet restore ./SmartLinks.sln
       
-    - name: Build
-      run: dotnet build ./SmartLinks.sln
+    #- name: Build
+    #  run: dotnet build ./SmartLinks.sln
       
-    - name: Test
-      run: dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
+    #- name: Test
+    #  run: dotnet test ./Tests/Tests.csproj --no-build --verbosity normal
       
     - name: Stop Docker Containers
       if: always()  # чтобы контейнеры останавливались даже при ошибках
