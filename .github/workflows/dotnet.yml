@@ -79,4 +79,4 @@ jobs:
       - name: Run tests with connection string environment variable
         env:
           CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
-        run: dotnet test --no-build --verbosity normal --logger:"trx"
+        run: dotnet test Tests/Tests.csproj --no-build --verbosity normal --logger:"trx"
