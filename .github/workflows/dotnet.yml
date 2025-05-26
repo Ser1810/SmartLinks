@@ -55,13 +55,6 @@ jobs:
           PGPASSWORD: 111
         run: |
           psql -h localhost -U puser -d SmartLinkNew -f SmartLink.sql
-
-      # Установка CONNECTION_STRING для дальнейшего использования
-      #- name: Set CONNECTION_STRING environment variable
-        #run: |
-          #echo "CONNECTION_STRING=Server=localhost;Port=5432;Database=SmartLinkNew;User Id=puser;Password=111;" >> $GITHUB_ENV
-
-      # Далее ваши шаги по сборке и тестам, где можно использовать $CONNECTION_STRING
       
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -71,12 +64,41 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore SmartLinks.sln
 
-      - name: Build
-        #env:
-          #CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+      - name: Build        
         run: dotnet build SmartLinks.sln --no-restore
 
-      - name: Run tests with connection string environment variable
-        #env:
-          #CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
-        run: dotnet test Tests/Tests.csproj --no-build --verbosity normal --logger:"trx"
+      # Добавляем установку coverlet.collector, если еще не добавлен в проект (можно сделать один раз)
+      - name: Add Coverlet Collector package (если не добавлено)
+        run: |
+          dotnet add Tests/Tests.csproj package coverlet.collector
+
+      # Запуск тестов с сбором покрытия и генерацией отчета в формате opencover или json
+      - name: Run tests with coverage collection
+        run: |
+          dotnet test Tests/Tests.csproj --no-build --verbosity normal \
+            --logger:"trx" \
+            /p:IsTestProject=true \
+            /p:"CollectCoverage=true" \
+            /p:"CoverletOutput=coverage/" \
+            /p:"CoverletOutputFormat=opencover" \
+            --collect:"XPlat Code Coverage"
+
+      - name: Install xmlstarlet for XML parsing
+        run: sudo apt-get install -y xmlstarlet
+
+      - name: Extract coverage percentage
+        id: coverage
+        run: |
+          # Путь к файлу отчета (может отличаться)
+          COVERAGE_FILE=$(find coverage/ -name "coverage.opencover.xml")
+          
+          # Извлекаем общее покрытие из XML
+          PERCENTAGE=$(xmlstarlet sel -t -v "/*/Summary/@sequenceCoverage" "$COVERAGE_FILE")
+          
+          echo "Coverage percentage: $PERCENTAGE%"
+          
+          # Передаем значение в output шага
+          echo "::set-output name=percent::$PERCENTAGE"
+
+      - name: Display coverage percentage
+        run: echo "Code coverage is ${{ steps.coverage.outputs.percent }}%"
