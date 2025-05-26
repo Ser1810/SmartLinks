@@ -94,17 +94,15 @@ jobs:
         
       - name: List files in backup directory
         run: ls -l ./Tests/TestResults
-
-      - name: Extract coverage percentage
+        
+      - name: Find and parse coverage report
         run: |
-          REPORT_FILE="coverage/coverage-report.xml"
-          if [ ! -f "$REPORT_FILE" ]; then
-            echo "Coverage report not found at $REPORT_FILE"
+          REPORT_FILE=$(find /home/runner/work/SmartLinks/SmartLinks/Tests/TestResults/ -name "coverage.cobertura.xml" -type f | head -n 1)
+          if [ -z "$REPORT_FILE" ]; then
+            echo "Coverage report not found"
             exit 1
           fi
-          PERCENTAGE=$(xmlstarlet sel -t -v "/*/Summary/@sequenceCoverage" "$REPORT_FILE")
-          echo "Coverage percentage: $PERCENTAGE%"
-          echo "::set-output name=percent::$PERCENTAGE"
-
-      - name: Display coverage percentage
-        run: echo "Code coverage is ${{ steps.coverage.outputs.percent }}%"
+          sudo apt-get install -y xmlstarlet
+          COVERAGE_PERCENT=$(xmlstarlet sel -t -v "/*/@line-rate" "$REPORT_FILE")
+          COVERAGE_PERCENT_INT=$(awk "BEGIN {printf \"%d\", $COVERAGE_PERCENT * 100}")
+          echo "Code coverage is $COVERAGE_PERCENT_INT%"
