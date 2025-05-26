@@ -30,10 +30,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        
+      - name: Install PostgreSQL client tools
+        run: sudo apt-get install -y postgresql-client
+        
+      - name: Check open ports
+        run: netstat -tuln || ss -tuln
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until pg_isready -h localhost -p 5432 -U puser; do
+          until pg_isready -h localhost -p 5433 -U puser; do
             echo "Waiting for PostgreSQL..."
             sleep 2
           done
