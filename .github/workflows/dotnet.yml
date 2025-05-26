@@ -91,6 +91,9 @@ jobs:
         
       - name: List files in backup directory
         run: ls -l ./Tests/
+        
+      - name: List files in backup directory
+        run: ls -l ./Tests/TestResult
 
       - name: Extract coverage percentage
         id: coverage
