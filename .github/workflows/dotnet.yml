@@ -57,9 +57,9 @@ jobs:
           psql -h localhost -U puser -d SmartLinkNew -f SmartLink.sql
 
       # Установка CONNECTION_STRING для дальнейшего использования
-      - name: Set CONNECTION_STRING environment variable
-        run: |
-          echo "CONNECTION_STRING=Server=localhost;Port=5432;Database=SmartLinkNew;User Id=puser;Password=111;" >> $GITHUB_ENV
+      #- name: Set CONNECTION_STRING environment variable
+        #run: |
+          #echo "CONNECTION_STRING=Server=localhost;Port=5432;Database=SmartLinkNew;User Id=puser;Password=111;" >> $GITHUB_ENV
 
       # Далее ваши шаги по сборке и тестам, где можно использовать $CONNECTION_STRING
       
@@ -73,10 +73,10 @@ jobs:
 
       - name: Build
         env:
-          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+          #CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
         run: dotnet build SmartLinks.sln --no-restore
 
       - name: Run tests with connection string environment variable
-        env:
-          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+        #env:
+          #CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
         run: dotnet test Tests/Tests.csproj --no-build --verbosity normal --logger:"trx"
