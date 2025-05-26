@@ -57,7 +57,7 @@ jobs:
 
       - name: Verify test result file exists
         run: |
-        ls -l ./TestResults/test_results.trx
+          ls -l ./TestResults/test_results.trx
 
       - name: Upload test results (опционально)
         if: always()
