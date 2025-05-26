@@ -54,7 +54,7 @@ jobs:
         env:
           PGPASSWORD: 111
         run: |
-          PGDATABASE=SmartLinkNew pg_restore -h localhost -U puser --clean --if-exists --verbose < SmartLink.backup
+          pg_restore -h localhost -U puser --clean --if-exists --verbose --file=SmartLinkNew.backup
 
       # Установка CONNECTION_STRING для дальнейшего использования
       - name: Set CONNECTION_STRING environment variable
