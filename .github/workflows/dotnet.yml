@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: "./TestResults/test_results.trx"
+          path: ./TestResults/test_results.trx
 
       - name: Tear down services
         if: always()
