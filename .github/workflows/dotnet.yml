@@ -59,12 +59,12 @@ jobs:
         run: |
           ls -l ./TestResults/test_results.trx
 
-      - name: Upload test results (опционально)
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: ./TestResults/test_results.trx
+      #- name: Upload test results (опционально)
+        #if: always()
+        #uses: actions/upload-artifact@v3
+        #with:
+          #name: test-results
+          #path: ./TestResults/test_results.trx
 
       - name: Tear down services
         if: always()
