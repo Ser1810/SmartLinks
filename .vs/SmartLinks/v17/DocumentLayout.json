@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "D:\\Test\\PW1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{DFCAA88F-6DFF-4EF2-8299-CA70D4325470}|DB\\DB.csproj|d:\\test\\pw1\\db\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFCAA88F-6DFF-4EF2-8299-CA70D4325470}|DB\\DB.csproj|solutionrelative:db\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|d:\\test\\pw1\\docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{04E786DA-8786-439F-9B37-B719EC6151D5}|docker-compose.dcproj|solutionrelative:docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,19 +71,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:2:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "docker-compose.override.yml",
-              "DocumentMoniker": "D:\\Test\\PW1\\docker-compose.override.yml",
-              "RelativeDocumentMoniker": "docker-compose.override.yml",
-              "ToolTip": "D:\\Test\\PW1\\docker-compose.override.yml",
-              "RelativeToolTip": "docker-compose.override.yml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-05-26T12:38:55.257Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -126,7 +113,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RedirectMiddleware.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
+              "RelativeDocumentMoniker": "WebAPI\\RedirectMiddleware.cs",
+              "ToolTip": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
+              "RelativeToolTip": "WebAPI\\RedirectMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:27:54.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "docker-compose.override.yml",
+              "DocumentMoniker": "D:\\Test\\PW1\\docker-compose.override.yml",
+              "RelativeDocumentMoniker": "docker-compose.override.yml",
+              "ToolTip": "D:\\Test\\PW1\\docker-compose.override.yml",
+              "RelativeToolTip": "docker-compose.override.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-05-26T12:38:55.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SqlExecutor.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\DB\\SqlExecutor.cs",
               "RelativeDocumentMoniker": "DB\\SqlExecutor.cs",
@@ -139,20 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RedirectMiddleware.cs",
-              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
-              "RelativeDocumentMoniker": "WebAPI\\RedirectMiddleware.cs",
-              "ToolTip": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
-              "RelativeToolTip": "WebAPI\\RedirectMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:27:54.232Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "SmartLinkService.cs",
               "DocumentMoniker": "D:\\Test\\PW1\\SmartLinks\\SmartLinkService.cs",
               "RelativeDocumentMoniker": "SmartLinks\\SmartLinkService.cs",
@@ -165,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\Test\\PW1\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",

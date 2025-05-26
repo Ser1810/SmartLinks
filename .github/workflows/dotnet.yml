@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD
 
 on:
   push:
@@ -9,87 +9,68 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  postgres-restore:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: puser
+          POSTGRES_PASSWORD: 111
+          POSTGRES_DB: SmartLinkNew
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
-
-      - name: Install Docker Compose (if needed)
-        run: |
-          # Для новых версий Docker (v20+), используйте встроенную команду 'docker compose'
-          # Проверка наличия 'docker compose'
-          if ! docker compose version; then
-            echo "Installing Docker Compose plugin..."
-            sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
-            # Создайте символическую ссылку, если нужно:
-            sudo ln -s /usr/local/bin/docker-compose /usr/local/bin/docker-compose || true
-          fi
-
-      - name: Start services with Docker Compose
-        run: |
-          # Используйте 'docker compose' или 'docker-compose' в зависимости от установленной версии.
-          if command -v docker; then
-            if docker compose version; then
-              docker compose up -d --build
-            else
-              sudo apt-get update && sudo apt-get install -y docker-compose-plugin
-              docker compose up -d --build
-            fi
-          else
-            echo "Docker не установлен"
-            exit 1
-          fi
-
       - name: Wait for PostgreSQL to be ready
         run: |
-          echo "Waiting for PostgreSQL to be ready..."
-          until docker exec postgres_with_restore pg_isready -U puser; do
-            sleep 1
+          until pg_isready -h localhost -p 5432 -U puser; do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
           done
-          echo "PostgreSQL is ready."
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v2
+      - name: Install psql client
+        run: sudo apt-get install -y postgresql-client
+
+      - name: Copy backup file to runner
+        run: cp .backup/SmartLink.sql ./ 
+
+      - name: Restore database from backup
+        env:
+          PGPASSWORD: 111
+        run: |
+          psql -h localhost -U puser -d SmartLinkNew -f ./SmartLink.sql
+
+      # Установка CONNECTION_STRING для дальнейшего использования
+      - name: Set CONNECTION_STRING environment variable
+        run: |
+          echo "CONNECTION_STRING=Server=localhost;Port=5432;Database=SmartLinkNew;User Id=puser;Password=111;" >> $GITHUB_ENV
+
+      # Далее ваши шаги по сборке и тестам, где можно использовать $CONNECTION_STRING
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.0.x' # или нужная версия .NET SDK
+          dotnet-version: 8.0.x
 
-      - name: Restore and build solution
-        run: |
-          # Замените на название вашего решения (.sln)
-          dotnet restore SmartLinks.sln
-          dotnet build SmartLinks.sln --no-restore --configuration Release
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Run tests
-        run: |
-          mkdir -p ./TestResults
-          dotnet test Tests/ --configuration Release --no-build --logger "trx;LogFileName=test_results.trx" --results-directory ./TestResults
+      - name: Build
+        env:
+          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+        run: dotnet build --no-restore
 
-      - name: Verify test result file exists
-        run: |
-          ls -l ./TestResults/test_results.trx
-
-      - name: Upload test results (опционально)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: ./TestResults/test_results.trx
-
-      - name: Tear down services
-        if: always()
-        run: |
-          docker-compose down --volumes
+      - name: Run tests with connection string environment variable
+        env:
+          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+        run: dotnet test --no-build --verbosity normal --logger:"trx"
