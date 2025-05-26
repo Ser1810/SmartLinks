@@ -93,7 +93,7 @@ jobs:
         run: ls -l ./Tests/
         
       - name: List files in backup directory
-        run: ls -l ./Tests/TestResult
+        run: ls -l ./Tests/TestResults
 
       - name: Extract coverage percentage
         id: coverage
