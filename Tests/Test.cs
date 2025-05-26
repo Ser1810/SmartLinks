@@ -13,7 +13,7 @@ namespace Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            Environment.SetEnvironmentVariable("CONNECTION_STRING", "Host=localhost;Port=5432;Database=SmartLinkNew;Username=puser;Password=111");
+            Environment.SetEnvironmentVariable("CONNECTION_STRING", "Host=localhost;Port=5433;Database=SmartLinkNew;Username=puser;Password=111");
         }
 
         protected RuleRedirect GetRuleRedirect(IDataReader reader)
