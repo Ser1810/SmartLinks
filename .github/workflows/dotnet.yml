@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload test results (опционально)
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: ./TestResults/test_results.trx
