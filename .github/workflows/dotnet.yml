@@ -16,7 +16,7 @@ jobs:
       postgres:
         image: postgres:15
         ports:
-          - 5433:5432
+          - 5433:5433
         env:
           POSTGRES_USER: puser
           POSTGRES_PASSWORD: 111
