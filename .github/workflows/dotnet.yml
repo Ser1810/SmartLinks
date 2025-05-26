@@ -79,7 +79,7 @@ jobs:
             --logger:"trx" \
             /p:IsTestProject=true \
             /p:"CollectCoverage=true" \
-            /p:"CoverletOutput=coverage/" \
+            /p:"CoverletOutput=coverage/coverage-report.xml" \
             /p:"CoverletOutputFormat=opencover" \
             --collect:"XPlat Code Coverage"
 
@@ -96,17 +96,14 @@ jobs:
         run: ls -l ./Tests/TestResults
 
       - name: Extract coverage percentage
-        id: coverage
         run: |
-          # Путь к файлу отчета (может отличаться)
-          COVERAGE_FILE=$(find coverage/ -name "coverage.opencover.xml")
-          
-          # Извлекаем общее покрытие из XML
-          PERCENTAGE=$(xmlstarlet sel -t -v "/*/Summary/@sequenceCoverage" "$COVERAGE_FILE")
-          
+          REPORT_FILE="coverage/coverage-report.xml"
+          if [ ! -f "$REPORT_FILE" ]; then
+            echo "Coverage report not found at $REPORT_FILE"
+            exit 1
+          fi
+          PERCENTAGE=$(xmlstarlet sel -t -v "/*/Summary/@sequenceCoverage" "$REPORT_FILE")
           echo "Coverage percentage: $PERCENTAGE%"
-          
-          # Передаем значение в output шага
           echo "::set-output name=percent::$PERCENTAGE"
 
       - name: Display coverage percentage
