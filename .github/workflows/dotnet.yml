@@ -102,3 +102,17 @@ jobs:
           COVERAGE_PERCENT=$(xmlstarlet sel -t -v "/*/@line-rate" "$REPORT_FILE")
           COVERAGE_PERCENT_INT=$(awk "BEGIN {printf \"%d\", $COVERAGE_PERCENT * 100}")
           echo "Code coverage is $COVERAGE_PERCENT_INT%"
+          
+      - name: Generate HTML report from coverage XML
+        run: |
+          REPORT_FILE="${{ steps.find_report.outputs.REPORT_FILE }}"
+          # Установка ReportGenerator, если еще не установлен
+          dotnet tool install -g dotnet-reportgenerator-globaltool || true
+          # Генерация HTML отчёта
+          reportgenerator -reports:"$REPORT_FILE" -targetdir:coverage/html -reporttypes:Html
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-coverage-report
+          path: coverage/html/
