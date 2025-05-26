@@ -105,7 +105,8 @@ jobs:
           
       - name: Generate HTML report from coverage XML
         run: |
-          REPORT_FILE="${{ steps.find_report.outputs.REPORT_FILE }}"
+          REPORT_FILE=$(find /home/runner/work/SmartLinks/SmartLinks/Tests/TestResults/ -name "coverage.cobertura.xml" -type f | head -n 1)
+          #REPORT_FILE="${{ steps.find_report.outputs.REPORT_FILE }}"
           # Установка ReportGenerator, если еще не установлен
           dotnet tool install -g dotnet-reportgenerator-globaltool || true
           # Генерация HTML отчёта
