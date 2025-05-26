@@ -61,14 +61,14 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
 
             var response = smartLink.SearchRule(context);
 
             Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
-            Assert.AreEqual("https://localhost:7173/TimeProcessor", response.Result);
+            Assert.AreEqual("http://localhost:7173/TimeProcessor", response.Result);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
             smartLink.TableName = "RuleEmpty";
@@ -92,7 +92,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
             smartLink.TableName = "Rule2";
@@ -108,7 +108,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
 
@@ -117,7 +117,7 @@ namespace Tests
             var response = smartLink.SearchRule(context);
 
             Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
-            Assert.AreEqual("https://localhost:7173/BrowserProcessor", response.Result);
+            Assert.AreEqual("http://localhost:7173/BrowserProcessor", response.Result);
         }
 
         [TestMethod]
@@ -125,7 +125,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             context.Request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36");
 
@@ -143,7 +143,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
 
@@ -153,7 +153,7 @@ namespace Tests
             var response = smartLink.SearchRule(context);
 
             Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
-            Assert.AreEqual("https://localhost:7173/LanguageProcessor", response.Result);
+            Assert.AreEqual("http://localhost:7173/LanguageProcessor", response.Result);
         }
 
         [TestMethod]
@@ -161,7 +161,7 @@ namespace Tests
         {
             var context = new DefaultHttpContext();
             context.Request.Path = "";
-            context.Request.Host = new HostString("https://localhost:7173");
+            context.Request.Host = new HostString("http://localhost:7173");
 
             var smartLink = new SmartLinkService();
             smartLink.TableName = "Rule2";
