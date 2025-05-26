@@ -39,7 +39,7 @@ jobs:
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until pg_isready -h localhost -p 5433 -U puser; do
+          until pg_isready -h postgres -p 5433 -U puser; do
             echo "Waiting for PostgreSQL..."
             sleep 2
           done
@@ -54,7 +54,7 @@ jobs:
         env:
           PGPASSWORD: 111
         run: |
-          psql -h localhost -U puser -d SmartLinkNew -f SmartLink.sql
+          psql -h postgres -U puser -d SmartLinkNew -f SmartLink.sql
       
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -72,8 +72,13 @@ jobs:
         run: |
           dotnet add Tests/Tests.csproj package coverlet.collector
 
+      - name: Set CONNECTION_STRING environment variable
+        run: echo "CONNECTION_STRING=Host=postgres;Port=5433;Database=SmartLinkNew;Username=puser;Password=111" >> $GITHUB_ENV
+
       # Запуск тестов с сбором покрытия и генерацией отчета в формате opencover или json
       - name: Run tests with coverage collection
+        env:
+          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
         run: |
           dotnet test Tests/Tests.csproj --no-build --verbosity normal \
             --logger:"trx" \
