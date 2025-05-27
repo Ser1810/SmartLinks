@@ -1,0 +1,119 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  postgres-restore:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: puser
+          POSTGRES_PASSWORD: 111
+          POSTGRES_DB: SmartLinkNew
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Install PostgreSQL client tools
+        run: sudo apt-get install -y postgresql-client
+        
+      - name: Check open ports
+        run: netstat -tuln || ss -tuln
+
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          until pg_isready -h localhost -p 5432 -U puser; do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
+          done
+
+      - name: Install psql client
+        run: sudo apt-get install -y postgresql-client  
+
+      - name: Copy backup file to runner
+        run: cp ./backup/SmartLink.sql ./ 
+
+      - name: Restore database from backup
+        env:
+          PGPASSWORD: 111
+        run: |
+          psql -h localhost -U puser -d SmartLinkNew -f SmartLink.sql
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore SmartLinks.sln
+
+      - name: Build        
+        run: dotnet build SmartLinks.sln --no-restore
+
+      # Добавляем установку coverlet.collector, если еще не добавлен в проект (можно сделать один раз)
+      - name: Add Coverlet Collector package (если не добавлено)
+        run: |
+          dotnet add Tests/Tests.csproj package coverlet.collector
+
+      - name: Set CONNECTION_STRING environment variable
+        run: echo "CONNECTION_STRING=Host=localhost;Port=5432;Database=SmartLinkNew;Username=puser;Password=111" >> $GITHUB_ENV
+
+      # Запуск тестов с сбором покрытия и генерацией отчета в формате opencover или json
+      - name: Run tests with coverage collection
+        env:
+          CONNECTION_STRING: ${{ env.CONNECTION_STRING }}
+        run: |
+          dotnet test Tests/Tests.csproj --no-build --verbosity normal \
+            --logger:"trx" \
+            /p:IsTestProject=true \
+            /p:"CollectCoverage=true" \
+            /p:"CoverletOutput=coverage/coverage-report.xml" \
+            /p:"CoverletOutputFormat=opencover" \
+            --collect:"XPlat Code Coverage"
+
+      - name: Install xmlstarlet for XML parsing
+        run: sudo apt-get install -y xmlstarlet
+        
+      - name: Find and parse coverage report
+        run: |
+          REPORT_FILE=$(find /home/runner/work/SmartLinks/SmartLinks/Tests/TestResults/ -name "coverage.cobertura.xml" -type f | head -n 1)
+          if [ -z "$REPORT_FILE" ]; then
+            echo "Coverage report not found"
+            exit 1
+          fi
+          sudo apt-get install -y xmlstarlet
+          COVERAGE_PERCENT=$(xmlstarlet sel -t -v "/*/@line-rate" "$REPORT_FILE")
+          COVERAGE_PERCENT_INT=$(awk "BEGIN {printf \"%d\", $COVERAGE_PERCENT * 100}")
+          echo "Code coverage is $COVERAGE_PERCENT_INT%"
+          
+      - name: Generate HTML report from coverage XML
+        run: |
+          REPORT_FILE=$(find /home/runner/work/SmartLinks/SmartLinks/Tests/TestResults/ -name "coverage.cobertura.xml" -type f | head -n 1)
+          #REPORT_FILE="${{ steps.find_report.outputs.REPORT_FILE }}"
+          # Установка ReportGenerator, если еще не установлен
+          dotnet tool install -g dotnet-reportgenerator-globaltool || true
+          # Генерация HTML отчёта
+          reportgenerator -reports:"$REPORT_FILE" -targetdir:coverage/html -reporttypes:Html
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-coverage-report
+          path: coverage/html/

@@ -1,0 +1,216 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Test\\PW1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|d:\\test\\pw1\\tests\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3A8BC4-0D4B-465E-90E0-ADBFACF27AC4}|Tests\\Tests.csproj|solutionrelative:tests\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\redirectmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DC6E106-A4FA-4FB7-8820-14426E29964A}|Processors.Language\\Processors.Language.csproj|d:\\test\\pw1\\processors.language\\languageprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DC6E106-A4FA-4FB7-8820-14426E29964A}|Processors.Language\\Processors.Language.csproj|solutionrelative:processors.language\\languageprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5411C05-635F-4503-800D-D618A04878E5}|Processors.Time\\Processors.Time.csproj|d:\\test\\pw1\\processors.time\\timeprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5411C05-635F-4503-800D-D618A04878E5}|Processors.Time\\Processors.Time.csproj|solutionrelative:processors.time\\timeprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFCAA88F-6DFF-4EF2-8299-CA70D4325470}|DB\\DB.csproj|d:\\test\\pw1\\db\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFCAA88F-6DFF-4EF2-8299-CA70D4325470}|DB\\DB.csproj|solutionrelative:db\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F98A6184-187B-4DC3-8CD2-92E118AAAC86}|SmartLinks\\SmartLinks.csproj|d:\\test\\pw1\\smartlinks\\smartlinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F98A6184-187B-4DC3-8CD2-92E118AAAC86}|SmartLinks\\SmartLinks.csproj|solutionrelative:smartlinks\\smartlinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HYPERPC\\AppData\\Local\\SourceServer\\9d7e72abf0e6610b0fa4762a2f21b6cfb3ab8f67f87ba2adb7f249ceb36b60e2\\src\\libraries\\System.Private.CoreLib\\src\\System\\Reflection\\MethodBaseInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA5222F1-EB9E-4E45-8CA5-8C9447E579C8}|Processors.Browser\\Processors.Browser.csproj|d:\\test\\pw1\\processors.browser\\browserprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA5222F1-EB9E-4E45-8CA5-8C9447E579C8}|Processors.Browser\\Processors.Browser.csproj|solutionrelative:processors.browser\\browserprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FC0C255-454C-4C11-9283-5FA04F560685}|Model\\Model.csproj|d:\\test\\pw1\\model\\ruleredirect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FC0C255-454C-4C11-9283-5FA04F560685}|Model\\Model.csproj|solutionrelative:model\\ruleredirect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|d:\\test\\pw1\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1DE7DA27-F44B-4186-B0CA-7959840AC720}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RedirectMiddleware.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
+              "RelativeDocumentMoniker": "WebAPI\\RedirectMiddleware.cs",
+              "ToolTip": "D:\\Test\\PW1\\WebAPI\\RedirectMiddleware.cs",
+              "RelativeToolTip": "WebAPI\\RedirectMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwCAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:27:54.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SmartLinkService.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\SmartLinks\\SmartLinkService.cs",
+              "RelativeDocumentMoniker": "SmartLinks\\SmartLinkService.cs",
+              "ToolTip": "D:\\Test\\PW1\\SmartLinks\\SmartLinkService.cs",
+              "RelativeToolTip": "SmartLinks\\SmartLinkService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:18:50.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Test.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\Tests\\Test.cs",
+              "RelativeDocumentMoniker": "Tests\\Test.cs",
+              "ToolTip": "D:\\Test\\PW1\\Tests\\Test.cs",
+              "RelativeToolTip": "Tests\\Test.cs",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAAAA0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:28:35.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MethodBaseInvoker.cs",
+              "DocumentMoniker": "C:\\Users\\HYPERPC\\AppData\\Local\\SourceServer\\9d7e72abf0e6610b0fa4762a2f21b6cfb3ab8f67f87ba2adb7f249ceb36b60e2\\src\\libraries\\System.Private.CoreLib\\src\\System\\Reflection\\MethodBaseInvoker.cs",
+              "ToolTip": "C:\\Users\\HYPERPC\\AppData\\Local\\SourceServer\\9d7e72abf0e6610b0fa4762a2f21b6cfb3ab8f67f87ba2adb7f249ceb36b60e2\\src\\libraries\\System.Private.CoreLib\\src\\System\\Reflection\\MethodBaseInvoker.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAADgvzwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T20:00:14.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LanguageProcessor.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\Processors.Language\\LanguageProcessor.cs",
+              "RelativeDocumentMoniker": "Processors.Language\\LanguageProcessor.cs",
+              "ToolTip": "D:\\Test\\PW1\\Processors.Language\\LanguageProcessor.cs",
+              "RelativeToolTip": "Processors.Language\\LanguageProcessor.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:25:01.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BrowserProcessor.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\Processors.Browser\\BrowserProcessor.cs",
+              "RelativeDocumentMoniker": "Processors.Browser\\BrowserProcessor.cs",
+              "ToolTip": "D:\\Test\\PW1\\Processors.Browser\\BrowserProcessor.cs",
+              "RelativeToolTip": "Processors.Browser\\BrowserProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T04:53:30.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RuleRedirect.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\Model\\RuleRedirect.cs",
+              "RelativeDocumentMoniker": "Model\\RuleRedirect.cs",
+              "ToolTip": "D:\\Test\\PW1\\Model\\RuleRedirect.cs",
+              "RelativeToolTip": "Model\\RuleRedirect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:57:08.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Program.cs",
+              "ToolTip": "D:\\Test\\PW1\\WebAPI\\Program.cs",
+              "RelativeToolTip": "WebAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:27:33.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Test\\PW1\\WebAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Test\\PW1\\WebAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WebAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-26T06:49:52.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TimeProcessor.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\Processors.Time\\TimeProcessor.cs",
+              "RelativeDocumentMoniker": "Processors.Time\\TimeProcessor.cs",
+              "ToolTip": "D:\\Test\\PW1\\Processors.Time\\TimeProcessor.cs",
+              "RelativeToolTip": "Processors.Time\\TimeProcessor.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:25:48.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SqlExecutor.cs",
+              "DocumentMoniker": "D:\\Test\\PW1\\DB\\SqlExecutor.cs",
+              "RelativeDocumentMoniker": "DB\\SqlExecutor.cs",
+              "ToolTip": "D:\\Test\\PW1\\DB\\SqlExecutor.cs",
+              "RelativeToolTip": "DB\\SqlExecutor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:21:32.964Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
