@@ -1,7 +1,6 @@
 {
   "ContentRoots": [
-    "/src/WebAPI/wwwroot/",
-    "/src/WebAPI/obj/Debug/net8.0/scopedcss/bundle/"
+    "/src/WebAPI/wwwroot/"
   ],
   "Root": {
     "Children": {
@@ -555,14 +554,6 @@
           }
         },
         "Asset": null,
-        "Patterns": null
-      },
-      "WebAPI.styles.css": {
-        "Children": null,
-        "Asset": {
-          "ContentRootIndex": 1,
-          "SubPath": "WebAPI.styles.css"
-        },
         "Patterns": null
       }
     },

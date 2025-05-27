@@ -1,8 +1,10 @@
 using DB;
 using Microsoft.AspNetCore.Http;
 using Model;
+using Moq;
 using Npgsql;
 using SmartLinks;
+using SmartLinks.Interfaces;
 using System.Data;
 
 namespace Tests
@@ -177,6 +179,87 @@ namespace Tests
 
             Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
             Assert.AreEqual(null, response.Result);
-        }      
+        }
+
+        [TestMethod]
+        public void RedirectMiddlewareTest()
+        {
+            var context = new DefaultHttpContext();
+            context.Request.Path = "";
+            context.Request.Host = new HostString("http://localhost:7173");
+
+            context.Request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36");
+
+            var mock = new Mock<ISmartLinksService>();
+            var redirectMiddleware = new RedirectMiddleware(mock.Object);
+
+            RequestDelegate emptyDelegate = context => Task.CompletedTask;
+
+            var response = redirectMiddleware.InvokeAsync(context, emptyDelegate);
+            
+            Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
+        }
+
+        [TestMethod]
+        public void RedirectMiddlewareTest2()
+        {
+            var context = new DefaultHttpContext();
+            context.Request.Path = "/123";
+            context.Request.Host = new HostString("http://localhost:7173");
+
+            context.Request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36");
+
+            var mock = new Mock<ISmartLinksService>();
+
+            var redirectMiddleware = new RedirectMiddleware(mock.Object);
+
+            RequestDelegate emptyDelegate = context => Task.CompletedTask;
+
+            var response = redirectMiddleware.InvokeAsync(context, emptyDelegate);
+
+            Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
+        }
+
+        [TestMethod]
+        public void RedirectMiddlewareTest3()
+        {
+            DefaultHttpContext context = null;
+
+            var mock = new Mock<ISmartLinksService>();
+
+            var redirectMiddleware = new RedirectMiddleware(mock.Object);
+
+            RequestDelegate emptyDelegate = context => Task.CompletedTask;
+
+            var response = redirectMiddleware.InvokeAsync(context, emptyDelegate);
+
+            Assert.AreEqual(TaskStatus.RanToCompletion, response.Status);
+        }
+
+        [TestMethod]
+        public async Task RedirectMiddlewareTest4()
+        {
+            // Arrange
+            var context = new DefaultHttpContext();
+            context.Request.Path = "";
+            context.Request.Host = new HostString("http://localhost:7173");
+            context.Request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36");
+
+            var mockService = new Mock<ISmartLinksService>();
+            mockService.Setup(s => s.SearchRule(It.IsAny<HttpContext>()))
+                       .ReturnsAsync("http://redirected-url.com");
+
+            var middleware = new RedirectMiddleware(mockService.Object);
+
+            RequestDelegate emptyDelegate = ctx => Task.CompletedTask;
+
+            // Act
+            await middleware.InvokeAsync(context, emptyDelegate);
+
+            // Assert
+            Assert.AreEqual(302, context.Response.StatusCode);
+            Assert.IsTrue(context.Response.Headers.ContainsKey("Location"));
+            Assert.AreEqual("http://redirected-url.com", (string)context.Response.Headers["Location"]);
+        }
     }
 }

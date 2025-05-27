@@ -28,7 +28,7 @@ public class RedirectMiddleware(ISmartLinksService smartLinksService) : IMiddlew
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e);            
         }
     }
 }

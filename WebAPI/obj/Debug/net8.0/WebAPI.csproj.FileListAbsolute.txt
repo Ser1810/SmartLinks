@@ -66,8 +66,6 @@ D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.RazorAssemblyInfo.cache
-D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.RazorAssemblyInfo.cs
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
@@ -76,9 +74,7 @@ D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WebAPI.props
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Test\PW1\WebAPI\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
-D:\Test\PW1\WebAPI\obj\Debug\net8.0\scopedcss\projectbundle\WebAPI.bundle.scp.css
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\WebAPI.dll
 D:\Test\PW1\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
