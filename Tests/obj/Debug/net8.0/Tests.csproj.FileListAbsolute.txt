@@ -153,6 +153,7 @@ D:\Test\PW1\Tests\bin\Debug\net8.0\Tests.deps.json
 D:\Test\PW1\Tests\bin\Debug\net8.0\Tests.runtimeconfig.json
 D:\Test\PW1\Tests\bin\Debug\net8.0\Tests.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Tests.pdb
+D:\Test\PW1\Tests\bin\Debug\net8.0\Castle.Core.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
@@ -165,6 +166,7 @@ D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.TestPlatform.CommunicationUtilities
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.TestPlatform.CrossPlatEngine.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
+D:\Test\PW1\Tests\bin\Debug\net8.0\Moq.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Test\PW1\Tests\bin\Debug\net8.0\Ninject.dll
@@ -277,5 +279,3 @@ D:\Test\PW1\Tests\obj\Debug\net8.0\refint\Tests.dll
 D:\Test\PW1\Tests\obj\Debug\net8.0\Tests.pdb
 D:\Test\PW1\Tests\obj\Debug\net8.0\Tests.genruntimeconfig.cache
 D:\Test\PW1\Tests\obj\Debug\net8.0\ref\Tests.dll
-D:\Test\PW1\Tests\bin\Debug\net8.0\Castle.Core.dll
-D:\Test\PW1\Tests\bin\Debug\net8.0\Moq.dll
