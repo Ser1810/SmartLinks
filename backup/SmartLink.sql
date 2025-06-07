@@ -5,7 +5,7 @@
 -- Dumped from database version 15.10
 -- Dumped by pg_dump version 15.10
 
--- Started on 2025-05-26 09:53:35
+-- Started on 2025-06-07 15:21:53
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,6 +21,21 @@ SET row_security = off;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
+
+--
+-- TOC entry 217 (class 1259 OID 5531157)
+-- Name: History; Type: TABLE; Schema: public; Owner: puser
+--
+
+CREATE TABLE public."History" (
+    "Url" character varying(250),
+    "RedirectURL" character varying(250),
+    "DateTime" timestamp without time zone,
+    "Headers" text
+);
+
+
+ALTER TABLE public."History" OWNER TO puser;
 
 --
 -- TOC entry 214 (class 1259 OID 2256103)
@@ -71,22 +86,30 @@ CREATE TABLE public."RuleEmpty" (
 ALTER TABLE public."RuleEmpty" OWNER TO puser;
 
 --
--- TOC entry 3322 (class 0 OID 2256103)
+-- TOC entry 3329 (class 0 OID 5531157)
+-- Dependencies: 217
+-- Data for Name: History; Type: TABLE DATA; Schema: public; Owner: puser
+--
+
+COPY public."History" ("Url", "RedirectURL", "DateTime", "Headers") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3326 (class 0 OID 2256103)
 -- Dependencies: 214
 -- Data for Name: Rule; Type: TABLE DATA; Schema: public; Owner: puser
 --
 
 COPY public."Rule" ("RuleDll", "RedirectTo", "IsActive", "Args", "Order") FROM stdin;
 BrowserProcessor	http://localhost:7173/BrowserProcessor	t	{"browser": "Chrome"}	1
-BrowserProcessor	http://localhost:7173/BrowserProcessor	t		1
 LanguageProcessor	http://localhost:7173/LanguageProcessor	t	{"language": "ru"}	2
-LanguageProcessor	http://localhost:7173/LanguageProcessor	t		2
 TimeProcessor	http://localhost:7173/TimeProcessor	t	{"date": {"Begin": "2025-05-18 15:00:00", "End": "2025-07-18 20:00:00"}}	3
 \.
 
 
 --
--- TOC entry 3323 (class 0 OID 2256108)
+-- TOC entry 3327 (class 0 OID 2256108)
 -- Dependencies: 215
 -- Data for Name: Rule2; Type: TABLE DATA; Schema: public; Owner: puser
 --
@@ -94,11 +117,12 @@ TimeProcessor	http://localhost:7173/TimeProcessor	t	{"date": {"Begin": "2025-05-
 COPY public."Rule2" ("RuleDll", "RedirectTo", "IsActive", "Args", "Order") FROM stdin;
 TimeProcessor	http://localhost:7173/TimeProcessor	t		3
 TimeProcessor	http://localhost:7173/TimeProcessor	t	{	4
+LanguageProcessor	http://localhost:7173/LanguageProcessor	t		1
 \.
 
 
 --
--- TOC entry 3324 (class 0 OID 2256113)
+-- TOC entry 3328 (class 0 OID 2256113)
 -- Dependencies: 216
 -- Data for Name: RuleEmpty; Type: TABLE DATA; Schema: public; Owner: puser
 --
@@ -107,7 +131,7 @@ COPY public."RuleEmpty" ("RuleDll", "RedirectTo", "IsActive", "Args", "Order") F
 \.
 
 
--- Completed on 2025-05-26 09:53:35
+-- Completed on 2025-06-07 15:21:53
 
 --
 -- PostgreSQL database dump complete

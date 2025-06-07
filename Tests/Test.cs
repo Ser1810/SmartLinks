@@ -6,6 +6,7 @@ using Npgsql;
 using SmartLinks;
 using SmartLinks.Interfaces;
 using System.Data;
+using System.Net;
 
 namespace Tests
 {
@@ -20,6 +21,13 @@ namespace Tests
             if (string.IsNullOrEmpty(connectionString))
             {
                 Environment.SetEnvironmentVariable("CONNECTION_STRING", "Host=localhost;Port=5433;Database=SmartLinkNew;Username=puser;Password=111");
+            }
+
+            var host = Environment.GetEnvironmentVariable("HISTORYAPI_HOST");
+
+            if (string.IsNullOrEmpty(host))
+            {
+                Environment.SetEnvironmentVariable("HISTORYAPI_HOST", "localhost");
             }
         }
 
@@ -39,6 +47,13 @@ namespace Tests
         {
             var sql = "select \"RuleDll\", \"RedirectTo\", \"Args\" from \"Rule\" where \"IsActive\" = true order by \"Order\"";
             var rules = SqlExecutor.ExecuteSql<RuleRedirect>(sql, GetRuleRedirect);
+        }
+
+        [TestMethod]
+        public void DBSuccessfulTest2()
+        {
+            var sql = "INSERT INTO \"History\" (\"Url\") VALUES (null)";
+            SqlExecutor.ExecuteInsert(sql, null);
         }
 
         [TestMethod]

@@ -22,7 +22,7 @@ namespace SmartLinks.Processors
 
             var language = value.ToString() ?? string.Empty;
 
-            if (language == "any" || language == "*" || acceptLanguage.Contains(value.ToString()?.ToLower()))
+            if (language == "*" || acceptLanguage.Contains(value.ToString()?.ToLower()))
             {
                 return true;
             }

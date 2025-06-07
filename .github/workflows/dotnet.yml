@@ -55,6 +55,14 @@ jobs:
           PGPASSWORD: 111
         run: |
           psql -h localhost -U puser -d SmartLinkNew -f SmartLink.sql
+                
+      - name: Start HistoryApi web application
+        working-directory: ./HistoryAPI
+        run: |
+          nohup dotnet run --no-launch-profile > historyapi.log 2>&1 &
+          
+      - name: Wait for HistoryApi to start
+        run: sleep 10
       
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
